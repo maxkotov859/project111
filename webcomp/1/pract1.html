@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Cards</title>
+  <style>
+    .contact-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .contact-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .contact-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .contact-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="contacts-container"></div>
+
+  <template id="contact-card">
+    <div class="contact-card">
+      <img src="" alt="Contact Image">
+      <h3 class="name"></h3>
+      <p class="email"></p>
+      <p class="phone"></p>
+    </div>
+  </template>
+
+
+  <script>
+    function createContactCard(imageSrc, name, email, phone) {
+      const template = document.getElementById('contact-card');
+      const clone = template.content.cloneNode(true);
+
+      const contactCard = clone.querySelector('.contact-card');
+      const contactImage = contactCard.querySelector('img');
+      const contactName = contactCard.querySelector('.name');
+      const contactEmail = contactCard.querySelector('.email');
+      const contactPhone = contactCard.querySelector('.phone');
+
+      contactImage.src = imageSrc;
+      contactName.textContent = name;
+      contactEmail.textContent = email;
+      contactPhone.textContent = phone;
+
+      return clone;
+    }
+
+    const contactsContainer = document.getElementById('contacts-container');
+    const contact1 = createContactCard('https://via.placeholder.com/150', 'John Doe', 'john@example.com', '+1234567890');
+    const contact2 = createContactCard('https://via.placeholder.com/150', 'Jane Smith', 'jane@example.com', '+1987654321');
+
+    contactsContainer.appendChild(contact1);
+    contactsContainer.appendChild(contact2);
+  </script>
+</body>
+</html>

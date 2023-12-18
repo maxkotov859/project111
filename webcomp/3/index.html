@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Card Component</title>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Custom Card Component</title>
+    <style>
+      /* Общие стили для всей страницы */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+  
+      /* Стили для кастомного компонента карточки */
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+  
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 1em;
+      }
+  
+      /* Стили для пользовательского контента внутри карточки */
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+  
+      /* Дополнительные стили для элементов в слотах */
+      /* Для примера, добавим стили для элементов в слоте с именем "custom-content" */
+      [slot="custom-content"] {
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <custom-card>
+      <span slot="title">Первая карточка</span>
+      <span slot="content">Содержимое первой карточки. Здесь может быть любой текст.</span>
+      <img slot="custom-content" src="https://via.placeholder.com/150" alt="Изображение">
+    </custom-card>
+  
+    <custom-card>
+      <span slot="title">Вторая карточка</span>
+      <span slot="content">Содержимое второй карточки. Это другой текст.</span>
+      <p slot="custom-content">Дополнительный текст для второй карточки.</p>
+    </custom-card>
+  
+    <script>
+      class CustomCard extends HTMLElement {
+        constructor() {
+          super();
+  
+          const template = document.createElement('template');
+          template.innerHTML = `
+            <style>
+              /* Стили карточки внутри компонента */
+              /* Можно перенести сюда стили из <style> в <head> */
+            </style>
+            <div class="card">
+              <h2><slot name="title">Default Title</slot></h2>
+              <p><slot name="content">Default Content</slot></p>
+              <slot name="custom-content"></slot>
+            </div>
+          `;
+  
+          const shadowRoot = this.attachShadow({ mode: 'open' });
+          shadowRoot.appendChild
+        }
+    }
+  

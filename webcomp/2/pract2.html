@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="main.js"></script>
+  <meta charset="UTF-8">
+  <title>Financial Calculator Example</title>
+</head>
+<body>
+  <h1>Финансовый калькулятор</h1>
+  <financial-calculator 
+    loan-amount="10000" 
+    interest-rate="5" 
+    loan-term="12"
+  ></financial-calculator>
+
+  <script>
+    const calculator = document.querySelector('financial-calculator');
+
+    // Обновление данных для расчета
+    calculator.loanAmount = 15000;
+    calculator.interestRate = 6;
+    calculator.loanTerm = 24;
+  </script>
+</body>
+</html>
